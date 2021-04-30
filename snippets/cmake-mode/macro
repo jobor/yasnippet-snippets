@@ -4,4 +4,4 @@
 # --
 macro(${1:name}${2: args})
         $2
-endmacro($1)$0
+endmacro()$0
