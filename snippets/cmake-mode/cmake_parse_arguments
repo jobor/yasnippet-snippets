@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: cmake_parse_arguments
+# key: args
+# --
+set(no_value_options ${1:""})
+set(single_value_options ${2:""})
+set(multi_value_options ${3:""})
+cmake_parse_arguments(PARSE_ARGV ${4:0} arg
+    "\${no_value_options}" "\${single_value_options}" "\${multi_value_options}"
+)$0
