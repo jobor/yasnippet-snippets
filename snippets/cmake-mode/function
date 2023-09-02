@@ -2,6 +2,7 @@
 # name: function
 # key: fun
 # --
-function(${1:name})
-         $2
-endfunction()$0
+function(${1:name} out_var$2)
+    set(result "")$0
+    set("\${out_var}" "\${result}" PARENT_SCOPE)
+endfunction()
