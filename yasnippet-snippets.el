@@ -1,10 +1,10 @@
-;;; yasnippet-snippets.el --- Collection of yasnippet snippets
+;;; yasnippet-snippets.el --- Collection of yasnippet snippets -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2017 Andrea Crotti
 
 ;; Author: Andrea Crotti <andrea.crotti.0@gmail.com>
 ;; Keywords: snippets
-;; Version: 0.2
+;; Version: 1.0
 ;; Package-Requires: ((yasnippet "0.8.0"))
 ;; Keywords: convenience, snippets
 ;; Homepage: https://github.com/AndreaCrotti/yasnippet-snippets
@@ -49,8 +49,9 @@
   ;; NOTE: we add the symbol `yasnippet-snippets-dir' rather than its
   ;; value, so that yasnippet will automatically find the directory
   ;; after this package is updated (i.e., moves directory).
-  (add-to-list 'yas-snippet-dirs 'yasnippet-snippets-dir t)
-  (yas-load-directory yasnippet-snippets-dir t))
+  (unless (member 'yasnippet-snippets-dir yas-snippet-dirs)
+    (add-to-list 'yas-snippet-dirs 'yasnippet-snippets-dir t)
+    (yas--load-snippet-dirs)))
 
 (defgroup yasnippet-snippets nil
   "Options for yasnippet setups.
@@ -61,10 +62,6 @@ customizable variable used for a snippet expansion.
 
 See Info node `(elisp)Customization Types'."
   :group 'yasnippet)
-
-(defun yasnippet-snippets--fixed-indent ()
-  "Set `yas-indent-line' to `fixed'."
-  (set (make-local-variable 'yas-indent-line) 'fixed))
 
 (defun yasnippet-snippets--no-indent ()
   "Set `yas-indent-line' to nil."
