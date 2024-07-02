@@ -1,0 +1,28 @@
+# -*- mode: snippet -*-
+# name: CMake Preset
+# key: cmpreset
+# --
+{
+    "version": 6,
+    "configurePresets": [
+        {
+            "name": "base",
+            "hidden": true,
+            "binaryDir": "build/\${presetName}"
+        },
+        {
+            "inherits": "base",
+            "name": "debug",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug"
+            }
+        },
+        {
+            "inherits": "base",
+            "name": "release",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release"
+            }
+        }
+    ]
+}
