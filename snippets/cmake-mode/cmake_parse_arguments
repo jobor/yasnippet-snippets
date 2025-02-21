@@ -7,4 +7,7 @@ set(single_value_options ${2:""})
 set(multi_value_options ${3:""})
 cmake_parse_arguments(PARSE_ARGV ${4:0} arg
     "\${no_value_options}" "\${single_value_options}" "\${multi_value_options}"
-)$0
+)
+if(arg_UNPARSED_ARGUMENTS)
+    message(FATAL_ERROR "Unexpected arguments: \${arg_UNPARSED_ARGUMENTS}")
+endif()$0
