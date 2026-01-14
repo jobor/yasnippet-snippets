@@ -4,3 +4,6 @@
 /report/.nrepl-port
 /.clj-kondo/
 /.lsp/
+*~
+\#*\#
+.\#*
